@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tugas_baru/models/Item.dart';
 
-import 'home_page.dart';
-
 class ItemPage extends StatelessWidget {
   final Item tempItem;
 
@@ -19,14 +17,18 @@ class ItemPage extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Colors.blueGrey.shade900,
             title: Text("Item Detail"),
+            leading: IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  Navigator.pop(context);
+                }),
           ),
           body: Container(
             alignment: Alignment.center,
             color: Colors.black87,
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            child: Column(children: [
               Container(
-                margin: EdgeInsets.only(bottom: 10),
+                margin: EdgeInsets.all(10),
                 child: Text(
                   "Nama : " + tempItem.name,
                   style: TextStyle(color: Colors.white),
@@ -39,7 +41,14 @@ class ItemPage extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
               ),
-              Text("Stock : " + tempItem.stok.toString(),
+              Container(
+                margin: EdgeInsets.only(bottom: 10),
+                child: Text(
+                  "Stock : " + tempItem.stok.toString(),
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+              Text("Satuan : " + tempItem.satuan.toString() + "Kg",
                   style: TextStyle(color: Colors.white))
             ]),
           )),

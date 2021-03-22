@@ -7,8 +7,8 @@ import 'package:tugas_baru/page/item_page.dart';
 
 class HomePage extends StatelessWidget {
   final List<Item> items = [
-    Item(name: 'Sugar', price: 5000, stok: 25),
-    Item(name: 'Salt', price: 2000, stok: 33)
+    Item(name: 'Sugar', price: 5000, stok: 25,satuan: 1),
+    Item(name: 'Salt', price: 2000, stok: 33,satuan: 2)
   ];
   @override
   Widget build(BuildContext context) {
@@ -44,8 +44,13 @@ class HomePage extends StatelessWidget {
                         Expanded(
                             child: Text(
                           item.price.toString(),
+                          textAlign: TextAlign.center,
+                        )),
+                        Expanded(
+                            child: Text(
+                          item.stok.toString(),
                           textAlign: TextAlign.end,
-                        ))
+                        )),
                       ],
                     ),
                   ),
